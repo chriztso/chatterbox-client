@@ -5,7 +5,7 @@ var MessagesView = {
   initialize: function() {
     App.fetch((data) => { 
     data.results.map(function(x){
-      MessagesView.render(MessageView.render(x));
+      MessagesView.renderMessage(x);
       })
     });
   },
@@ -18,16 +18,16 @@ var MessagesView = {
   //     callback();
   //   });
   // }  
-  render :function(item){
+  renderMessage :function(item){
    // var compiled = MessageView.render(item.value)
-   MessagesView.$chats.append(item);
+   MessagesView.$chats.append(MessageView.render(item));
   },
   
-  renderMessage: function(message){
-   $('.submit').on('click', function(){
-     MessagesView.$chats.append('<div>' + message + '</div>' );
-   })  
-  }, 
+  // renderMessage: function(message){
+  //  $('.submit').on('click', function(){
+  //    MessagesView.$chats.append('<div>' + message + '</div>' );
+  //  })  
+  // }, 
   
       
     // })
