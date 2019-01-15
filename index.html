@@ -30,7 +30,7 @@
         <select></select>
         <button>Add Room</button>
       </div>
-      <form action="#" id="send" method="post">
+      <form action= "" id="send" method="post">
         <input type="text" name="message" id="message"/>
         <input type="submit" name="submit" class="submit"/>
       </form>
@@ -49,5 +49,17 @@
     <script>
       $(() => App.initialize());
     </script>
+    <script>
+      $(() => MessageView.render());
+    </script> 
+     <script>
+      $(() => RoomsView.renderRoom());
+    </script>
+      <script>
+     $(() => MessagesView.renderMessage());   
+     </script>   
+      
+
+
   </body>
 </html>
