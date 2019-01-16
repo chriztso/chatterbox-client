@@ -21,7 +21,19 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
       //console.log('handlesubmitran', event)
-      Parse.create();
+    var message = {
+      roomname: 'lobby',
+      text: FormView.$form.find('#message').val(),
+      username: App.username
+    };
+
+    Parse.create(message, (data) => {
+      _.extend(message, data)
+      Messages.add(message, MessagesView.renderMessage())
+      
+    });
+    // MessagesView.initialize();
+      // $('#chats').append('sdfdsf')
   },
 
   setStatus: function(active) {

@@ -3,11 +3,6 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
-    App.fetch((data) => { 
-    data.results.map(function(x){
-      MessagesView.renderMessage(x);
-      })
-    });
   },
 
   // render: function(callback = ()=>{}) {
@@ -18,9 +13,20 @@ var MessagesView = {
   //     callback();
   //   });
   // }  
-  renderMessage :function(item){
-   // var compiled = MessageView.render(item.value)
-   MessagesView.$chats.append(MessageView.render(item));
+  renderMessage :function(){
+    Messages
+      .items()
+      // .filter(Room.isSelected(message))
+      .each((message) => { 
+        var $message = MessageView.render(message);
+        MessagesView.$chats.append($message);
+      })
+    
+   // _.each(Messages._data, function(message){
+   //    var $message = MessageView.render(message);
+   //    MessagesView.$chats.append($message);
+   // })
+
   },
   
   // renderMessage: function(message){
