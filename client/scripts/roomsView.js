@@ -18,19 +18,16 @@ var RoomsView = {
         // $('#rooms select').append($room);
      
         //  console.log('hi');
-       
-         console.log(rooms);
-         var $room = $('<option> </option>');
-         
-         console.log($room.val())
-        $('#rooms select').append($room);
+        for(var key of Rooms._data){
+        var $option = '<option>' + Rooms._data + '</option>';
+        $('#rooms select').append($option);
+        }
         }
       }
   // for (let i  = 0; i < Rooms._data.length; i++){
   //   var $room = '<option>' + Rooms._data[i] + '</option>'
   //       $('#rooms select').append($room);
   
-
 
 
   // _.each(Rooms._data, function(room){

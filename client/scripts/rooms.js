@@ -1,6 +1,6 @@
 var Rooms = {
   
-   _data: [], 
+   _data: new Set, 
 
    selected: 'lobby', 
 
@@ -14,7 +14,7 @@ var Rooms = {
   _.chain(messages)
    .pluck('roomname')
    .uniq()
-   .each(room => Rooms._data.push(room));
+   .each(room => Rooms._data.add(room));
    }
  //  storage : function(message, callback = ()=>{}){
  //    Rooms._roomNames[Messages._data[Rooms._conform(message).roomname]]= 1;
