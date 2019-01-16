@@ -18,11 +18,11 @@ var RoomsView = {
         // $('#rooms select').append($room);
      
         //  console.log('hi');
-    
+       
          console.log(rooms);
          var $room = $('<option> </option>');
          
-         $room.text('Hi');
+         console.log($room.val())
         $('#rooms select').append($room);
         }
       }
