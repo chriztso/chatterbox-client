@@ -1,22 +1,36 @@
 var Rooms = {
-
-  storage : function(){
-    var obj1 = {};
-    for(var key in Rooms){
-      if (Rooms[key]['roomname']){
-        if (!obj1[key]['roomname']) {
-          obj1[key]['roomname'] = 1; 
-        }
-      }
-    }
-   console.log(obj1)
-  },
   
-  add : function(value){
-    $('#rooms button').on('click', function(){
-       $('#rooms select').append("<option value = '" + value + "'>" + value + "</option>");
-    })
-  },
+   _data: [], 
+
+   selected: 'lobby', 
+
+   // isSelected: function(roomname){
+   //   return roomname === Rooms.selected || 
+   //          !roomname && Rooms.selected === 'lobby';
+    
+   // },
+
+  update:function(messages){
+  _.chain(messages)
+   .pluck('roomname')
+   .uniq()
+   .each(room => Rooms._data.push(room));
+   }
+ //  storage : function(message, callback = ()=>{}){
+ //    Rooms._roomNames[Messages._data[Rooms._conform(message).roomname]]= 1;
+ //    callback(); 
+ //  },
+  
+ //  // add : function(value){
+ //  //   // $('#rooms button').on('click', function(){
+ //  //   //    $('#rooms select').append("<option value = '" + value + "'>" + value + "</option>");
+ //  //   // })
+ //  // },
+
+ // _conform: function(message){
+ //    message.roomname = message.roomname || '';
+ //    return message 
+ //  }
   
   //store roomnames here in obj
 };

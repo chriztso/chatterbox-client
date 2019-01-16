@@ -16,8 +16,8 @@ var MessagesView = {
   renderMessage :function(){
     Messages
       .items()
-      // .filter(Room.isSelected(message))
       .each((message) => { 
+      // .filter(Rooms.isSelected(message))
         var $message = MessageView.render(message);
         MessagesView.$chats.append($message);
       })

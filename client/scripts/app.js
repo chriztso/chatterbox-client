@@ -10,7 +10,7 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
-    Rooms.storage();
+    Rooms.update();
 
     // Fetch initial batch of messages
     App.startSpinner();
@@ -21,6 +21,7 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
+      Rooms.update(data.results, RoomsView.render());
       Messages.update(data.results, MessagesView.renderMessage()); //updating our data as we go 
       callback();
     });
